@@ -44,15 +44,15 @@ This will start the Vite development server for React and also launch your custo
 
 ## Folder Structure
 
-- `/frontend`: Contains all frontend files, including React components, styles, and assets.
-- `/backend`: Contains all backend files, including server logic, API routes, and database configurations.
+- `/my-project`: Contains all frontend files, including React components, styles, and assets.
+- `/server`: Contains all backend files, including server logic, API routes, and database configurations.
 - `/public`: Public files accessible from the root URL, such as HTML templates and static assets.
 - `/src`: Source files for both frontend and backend, organized into respective directories.
 
 ## Customization
 
-- **Frontend**: You can modify the React components, styles, and scripts in the `/frontend` directory to customize the frontend of your application.
-- **Backend**: Customize the backend logic, API routes, and database configurations in the `/backend` directory to suit your project requirements.
+- **Frontend**: You can modify the React components, styles, and scripts in the `/my-project` directory to customize the frontend of your application.
+- **Backend**: Customize the backend logic, API routes, and database configurations in the `/sever` directory to suit your project requirements.
 
 ## Deployment
 
