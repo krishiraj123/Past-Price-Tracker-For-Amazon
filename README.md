@@ -1,18 +1,16 @@
-Sure, here's a basic README.md file for your project using React with Vite and a custom server:
-
-```markdown
-# React Vite Project with Custom Server
+# Past Price For Amazon
 
 ## Introduction
 
-This project is a template for building React applications using Vite for fast development and a custom server setup for backend operations. It allows you to quickly scaffold a project with modern tooling and a flexible backend architecture.
+Welcome to **Past Price**, your go-to tool for tracking past prices of products! Our project aims to provide users with historical price data, allowing them to make informed decisions when purchasing items. With intuitive features and easy navigation, users can explore price trends, compare fluctuations, and gain insights into the market dynamics of their desired products. Whether you're a savvy shopper or a data enthusiast, **Past Price** is here to empower you with valuable information. Join us on GitHub to contribute, explore, and revolutionize the way we analyze product prices!
 
 ## Requirements
 
-Before running this project, ensure you have the following installed on your machine:
+Before running this project, ensure that you have the following installed on your machine:
 
-- Node.js (v14 or newer)
+- Node.js (version 14 or newer)
 - npm or yarn package manager
+
 
 ## Installation
 
@@ -69,10 +67,3 @@ You can then deploy the built files along with your backend server to your prefe
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues or pull requests if you find any bugs or want to suggest improvements.
-
-## License
-
-[MIT License](LICENSE)
-```
-
-Make sure to replace `"your-username"` and `"your-repo"` with your actual GitHub username and repository name.
