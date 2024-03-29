@@ -12,16 +12,22 @@ const Footer = () => {
           &copy;Krishirajsinh Vansia 2024 All Rights Reserved
         </p>
         <div className="flex gap-5 items-center p-2">
-          <a href="" className="nav-link">
+          <a href="https://twitter.com/Krishiraj123" className="nav-link">
             <FaSquareXTwitter color="white" size={20} />
           </a>
-          <a className="nav-link" href="">
+          <a
+            className="nav-link"
+            href="https://www.linkedin.com/in/krishiraj-vansia-b97139263/"
+          >
             <FaLinkedinIn color="white" size={20} />
           </a>
-          <a className="nav-link" href="">
+          <a
+            className="nav-link"
+            href="https://www.instagram.com/krishiraj123/"
+          >
             <FaInstagram color="white" size={20} />
           </a>
-          <a href="" className="nav-link">
+          <a href="https://github.com/krishiraj123" className="nav-link">
             <FaGithub color="white" size={20} />
           </a>
         </div>
