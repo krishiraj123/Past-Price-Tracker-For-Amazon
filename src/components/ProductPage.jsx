@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa6";
 import { PiBookmarkSimpleLight } from "react-icons/pi";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
@@ -9,11 +9,15 @@ import { RiMessage2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import Modal from "./Modal";
+import SuggestionBar from "./SuggestionBar";
 // import Chart from "./chart";
 
 const ProductPage = () => {
   const [product, setProduct] = useState({});
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLiked, setIsLiked] = useState(false);
+  const [listOfLikedProductIds, setListOfLikedProductIds] = useState([]);
   const { id } = useParams();
   const productList = [
     {
@@ -94,6 +98,32 @@ const ProductPage = () => {
   const start = Math.floor(Math.random() * (maxStartIndex + 1));
   const end = start + 3;
 
+  useEffect(() => {
+    const likedProductIds =
+      JSON.parse(localStorage.getItem("likedProductIds")) || [];
+    setListOfLikedProductIds(likedProductIds);
+  }, []);
+
+  const handleLike = () => {
+    if (isLiked) {
+      const updatedLikedProductIds = listOfLikedProductIds.filter(
+        (productId) => productId !== id
+      );
+      setListOfLikedProductIds(updatedLikedProductIds);
+    } else {
+      // Like the product
+      setListOfLikedProductIds([...listOfLikedProductIds, id]);
+    }
+    setIsLiked(!isLiked);
+  };
+
+  useEffect(() => {
+    localStorage.setItem(
+      "likedProductIds",
+      JSON.stringify(listOfLikedProductIds)
+    );
+  }, [listOfLikedProductIds]);
+
   return (
     <>
       <div className="lg:w-full lg:flex p-10">
@@ -111,10 +141,12 @@ const ProductPage = () => {
             <p className="mb-4 font-thin">Visit Product</p>
           </Link>
           <div className="mb-4 space-x-2">
-            <button className="bg-pink-100 text-red-400 font-bold px-3 py-2 rounded-lg">
+            <button
+              className="bg-pink-100 text-red-400 font-bold px-3 py-2 rounded-lg"
+              onClick={handleLike}
+            >
               <div className="flex justify-center items-center gap-2">
-                <CiHeart fontSize={20} />
-                123
+                <FaHeart color={isLiked ? "red" : "pink"} />
               </div>
             </button>
             <button className="bg-slate-200 text-black font-bold px-2 py-2 rounded-lg">
@@ -164,7 +196,6 @@ const ProductPage = () => {
             <div class="flex flex-wrap">{printCards}</div>
           </div>
 
-          {/* note mailer */}
           <div className="flex lg:flex-row flex-col lg:gap-0 gap-3">
             <div className="rounded-pill bg-dark text-white lg:w-1/2 marker:w-full p-3 text-center me-2 text-mono">
               <Link
@@ -185,6 +216,9 @@ const ProductPage = () => {
         </div>
       </div>
       {/* <Chart /> */}
+      <div className="ms-3 mb-5 md:mb-0">
+        <SuggestionBar discount={product.discountRate} />
+      </div>
       <div className="mb-4 ms-10 me-10 mt-5">
         {product.description !== "" && (
           <h2 className="text-3xl font-bold mb-4 tracking-wide">Description</h2>

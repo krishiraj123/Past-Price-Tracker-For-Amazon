@@ -13,19 +13,19 @@ app.use(express.json());
 app.use(cors());
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
+  host: "smtp.gmail.com",
+  port: 587,
   secure: false,
   auth: {
-    user: process.env.SMTP_MAIL,
-    pass: process.env.SMTP_PASSWORD,
+    user: "krishirajsinhvansia1@gmail.com",
+    pass: "znso ndoy efzz hpva",
   },
 });
 
 const sendEmail = async (to, subject, text) => {
   try {
     let info = await transporter.sendMail({
-      from: process.env.SMTP_MAIL,
+      from: "krishirajsinhvansia1@gmail.com",
       to: to,
       subject: subject,
       html: text,
@@ -59,16 +59,15 @@ const checkPriceAndSendEmail = async (productId, userEmail) => {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Price Tracking Email</title>
 <style>
-  /* Reset styles */
   body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
   }
 
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
   }
 
   .container {
@@ -76,40 +75,44 @@ const checkPriceAndSendEmail = async (productId, userEmail) => {
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 32px;
     color: #333333;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: bold;
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     color: #666666;
     margin-bottom: 20px;
+    line-height: 1.5;
   }
 
   .product-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 28px;
     background-color: #007bff;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 20px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .button:hover {
@@ -118,16 +121,17 @@ const checkPriceAndSendEmail = async (productId, userEmail) => {
 
   @media screen and (max-width: 600px) {
     .container {
-      padding: 10px;
+      padding: 16px;
     }
     h1 {
-      font-size: 24px;
+      font-size: 28px;
     }
     p {
-      font-size: 14px;
+      font-size: 16px;
     }
     .button {
-      font-size: 16px;
+      font-size: 18px;
+      padding: 12px 24px;
     }
   }
 </style>
@@ -136,7 +140,7 @@ const checkPriceAndSendEmail = async (productId, userEmail) => {
   <div class="container">
     <h1>Welcome to Past Price</h1>
     <p>You are now tracking a product. Here's the latest update:</p>
-    <img src="${product.imageUrl}" class="product-image" alt="Product Image">
+    <img src="${product.imageUrl}" class="product-image nav-link" alt="Product Image">
     <p>This product is back in stock! with <b>Lowest Price of ${product.lowestPrice}</b> Don't miss out - <a href="${product.url}" class="button" target="_blank" rel="noopener noreferrer">Buy it now</a></p>
     <p>Stay tuned for more updates and offers.</p>
   </div>
@@ -184,8 +188,10 @@ app.post("/login", async (req, res) => {
     if (user) {
       const passwordMatch = await bcrypt.compare(password, user.password);
 
-      if (passwordMatch) {
-        res.json({ message: "Login successful" });
+      if (user.isAdmin === true && passwordMatch) {
+        res.status(201).json({ message: "Admin Login successful" });
+      } else if (passwordMatch) {
+        res.status(200).json({ message: "Login successful" });
       } else {
         res.status(401).json({ error: "Incorrect password" });
       }
@@ -235,7 +241,7 @@ app.post("/product", async (req, res) => {
     const checkurl = await Product.find({ url: product.url });
 
     if (product.currentPrice === 0 || product.originalPrice === 0) {
-      return res.status(400).json({ error: "Product price cannot be zero." });
+      return res.status(201).json({ error: "Product price cannot be zero." });
     } else {
       if (checkurl.length === 0) {
         const createdProduct = await Product.create(product);

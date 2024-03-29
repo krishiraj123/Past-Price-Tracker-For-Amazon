@@ -48,14 +48,14 @@ const SearchBar = () => {
         product,
       });
       console.log(response.status);
-      if (response.status === 200) {
-        navigate(`/product/${response.data._id}`);
+      if (response.status === 201) {
+        Swal.fire({
+          title: "No Such Item Found",
+          text: "The item is out of stock or currently unavailable",
+          icon: "warning",
+        });
       } else {
-        swal(
-          "No Such Item Found",
-          "The item is out of stock or currently unavailable",
-          "warning"
-        );
+        navigate(`/product/${response.data._id}`);
       }
     } catch (err) {
       console.error(

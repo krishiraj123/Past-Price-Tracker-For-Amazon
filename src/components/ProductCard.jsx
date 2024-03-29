@@ -47,7 +47,7 @@ const ProductCard = (props) => {
                     </small>
                   </div>
                   <h5 className="card-title text-sm font-normal lh-4">
-                    {product.title}
+                    {product.title.substring(0, 45)}
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted text-center my-3 font-bold">
                     <span className="shadow rounded-lg p-2 m-2">

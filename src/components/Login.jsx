@@ -15,7 +15,7 @@ const Login = () => {
       .post("http://localhost:3000/login", { email, password })
       .then((res) => {
         console.log(res);
-        if (res.status === 200 && password.startsWith("admin-")) {
+        if (res.status === 201) {
           navigate("/admin");
         } else if (res.status === 200) {
           navigate("/");

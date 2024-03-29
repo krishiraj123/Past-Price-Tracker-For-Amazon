@@ -7,6 +7,7 @@ import Signup from "./components/Signup.jsx";
 import ProductPage from "./components/ProductPage.jsx";
 import Home from "./components/Home.jsx";
 import AdminSection from "./components/AdminSection.jsx";
+import WishList from "./components/WishList.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/signup" element={<Signup />} />
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/admin" element={<AdminSection />} />
+      <Route path="/wish" element={<WishList />} />
     </Routes>
   </BrowserRouter>
 );

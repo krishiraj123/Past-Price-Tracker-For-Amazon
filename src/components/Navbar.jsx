@@ -3,12 +3,6 @@ import React from "react";
 const Navbar = () => {
   const images = [
     {
-      src: "src/assets/icons/search.svg",
-      alt: "search",
-      height: 28,
-      width: 28,
-    },
-    {
       src: "src/assets/icons/black-heart.svg",
       alt: "heart",
       height: 28,
@@ -41,7 +35,15 @@ const Navbar = () => {
               {images.map((img, index) => {
                 return (
                   <li key={index}>
-                    <a href={img.alt === "user" ? "/login" : "/"}>
+                    <a
+                      href={
+                        img.alt === "user"
+                          ? "/login"
+                          : "/" || img.alt === "heart"
+                          ? "/wish"
+                          : "/"
+                      }
+                    >
                       <img
                         src={img.src}
                         alt={img.alt}

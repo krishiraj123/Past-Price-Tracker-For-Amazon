@@ -1,0 +1,90 @@
+.suggestion-bar {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  overflow: visible;
+  margin-bottom: 30px;
+}
+
+.suggestion-bar-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.suggestion-bar-option {
+  position: relative;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.exactly {
+  background-color: green;
+  color: #fff;
+}
+
+.indeed {
+  background-color: rgb(246, 246, 7);
+  color: #333;
+}
+
+.maybe {
+  background-color: orange;
+  color: #fff;
+}
+
+.nope {
+  background-color: red;
+  color: #fff;
+}
+
+.arrow-down {
+  display: none;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #333;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow-down.green {
+  border-top-color: green;
+}
+
+.arrow-down.yellow {
+  border-top-color: rgb(246, 246, 7);
+}
+
+.arrow-down.orange {
+  border-top-color: orange;
+}
+
+.arrow-down.red {
+  border-top-color: red;
+}
+
+.suggestion-bar-option.active .arrow-down {
+  display: block;
+}
+
+.tip {
+  position: absolute;
+  bottom: -30px;
+  left: 1;
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

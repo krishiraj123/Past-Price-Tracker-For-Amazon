@@ -4,7 +4,7 @@ const signupSchema = mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    lowercase: true
+    lowercase: true,
   },
 
   email: {
@@ -19,6 +19,11 @@ const signupSchema = mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+  },
+
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
 });
 
