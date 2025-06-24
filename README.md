@@ -112,7 +112,7 @@ Check our [contribution guidelines](CONTRIBUTING.md) and [code of conduct](CODE_
 ## 📞 Contact
 
 * **Maintainer**: Krishiraj Vansia
-* **Email**: [krishiraj@example.com](mailto:krishiraj@example.com)
+* **Email**: [krishirajvansia123@gmail.com](mailto:krishirajvansia123@gmail.com)
 * **GitHub**: [@krishiraj123](https://github.com/krishiraj123)
 
 ---
