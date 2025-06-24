@@ -1,11 +1,4 @@
-# ![Past Price Logo](./assets/logo.png)
-
 # Past Price Tracker for Amazon
-
-[![NPM Version](https://img.shields.io/npm/v/past-price-tracker.svg)](https://www.npmjs.com/package/past-price-tracker)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/krishiraj123/Past-Price-Tracker-For-Amazon/ci.yml?branch=main\&style=flat)](https://github.com/krishiraj123/Past-Price-Tracker-For-Amazon/actions)
-[![Issues](https://img.shields.io/github/issues/krishiraj123/Past-Price-Tracker-For-Amazon)](https://github.com/krishiraj123/Past-Price-Tracker-For-Amazon/issues)
-
 ---
 
 ## 📖 Introduction
