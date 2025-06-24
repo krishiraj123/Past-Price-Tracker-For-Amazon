@@ -10,7 +10,6 @@ Welcome to **Past Price Tracker for Amazon**—your go-to solution for retrievin
 * **Historical Price Charts**: Visualize price history with interactive graphs.
 * **Price Alerts**: Get notified when a product hits your target price.
 * **Bulk Tracking**: Monitor multiple products simultaneously.
-* **Export Data**: Download CSV of historical prices for offline analysis.
 * **Responsive UI**: Clean, mobile-friendly interface built with React and Tailwind CSS.
 
 ## 🛠️ Tech Stack
@@ -19,8 +18,7 @@ Welcome to **Past Price Tracker for Amazon**—your go-to solution for retrievin
 | ---------- | ----------------------------- |
 | Frontend   | React, Vite, Tailwind CSS     |
 | Backend    | Node.js, Express, Axios, CORS |
-| Database   | MongoDB (Mongoose)            |
-| Deployment | Docker, GitHub Actions        |
+| Database   | MongoDB (Mongoose)            | 
 
 ## 📂 Folder Structure
 
@@ -37,9 +35,6 @@ Welcome to **Past Price Tracker for Amazon**—your go-to solution for retrievin
 │   └── utils/             # Helpers and services
 ├── .github/               # CI/CD workflows
 ├── .env.example           # Example environment variables
-├── docker-compose.yml     # Docker orchestration
-├── Dockerfile             # Server container configuration
-├── LICENSE
 ├── README.md
 └── package.json
 ```
